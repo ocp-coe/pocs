@@ -1,0 +1,45 @@
+RHEL 7.3 or 7.4 x86_64 fully updated 
+•	SELinux should be enforcing  
+•	Firewall should be running 
+•	NetworkManager enabled
+•	Fully functional DNS
+•	The “Minimum” installation profile is recommended. 
+•	As described in section 2.2.1
+https://access.redhat.com/documentation/en-us/openshift_container_platform/3.9/html/installation_and_configuration/installing-a-cluster#install-config-install-prerequisites
+•	Administrative AKA “root” or “sudo” access to master and nodes 
+•	ssh access to master from administrator workstation
+•	ssh access from master to nodes 
+Network configuration 
+•	Open Ports required per section “2.2.2.2.2. Required Ports”
+https://access.redhat.com/documentation/en-us/openshift_container_platform/3.9/html/installation_and_configuration/installing-a-cluster#envirornment-requirements
+•	If using a NAT IP address for access. Please make sure that it NATs to the Master's IP address with ports 80/443 open. ❏ If need to review cockpit, Please make sure that it NATs to the Master's IP address with ports 9090 open.
+•	Proxy Configuration: HTTPS whitelist these hosts if you are behind a proxy. 
+Red Hat Subscription Management
+•	subscription.rhn.redhat.com 
+Red Hat’s docker registry
+•	registry.access.redhat.com 
+•	access.redhat.com 
+Internet connectivity from Nodes is required for certain functionality (Eg: node.js, maven, rubygems) 
+•	Choose a domain name for Openshift 
+•	Example: cloudapps.example.com 
+Using the above example, the applications will get a name as: 
+•	appname-projectname.cloudapps.example.com 
+DNS entries MUST be resolvable to the hostname of the Master and Node (examples) 
+•	ocp3-master.example.com 
+•	ocp3-node1.example.com  
+•	ocp3-node2.example.com  
+•	As described in Section 2.4.1.1 here: https://access.redhat.com/documentation/en-us/openshift_container_platform/3.9/html/installation_and_configuration/installing-a-cluster#environment-scenarios
+
+DNS Configuration: Wildcard DNS entry must be made pointing to the IP address of the Master 
+•	If you're using a NAT system...the IP of the nat  
+•	Wildcard entry example: *.cloudapps.example.com  
+Activate the Openshift subscriptions provided by Red Hat  
+•	To set up your hosts use the information described here: 
+https://access.redhat.com/documentation/en-us/openshift_container_platform/3.9/html/installation_and_configuration/installing-a-cluster#install-config-install-host-preparation
+
+# subscription-manager repos \
+    --enable="rhel-7-server-rpms" \
+    --enable="rhel-7-server-extras-rpms" \
+    --enable="rhel-7-server-ose-3.9-rpms" \
+    --enable="rhel-7-fast-datapath-rpms" \
+    --enable="rhel-7-server-ansible-2.4-rpms"
