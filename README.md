@@ -1,4 +1,3 @@
-# pocs
 Proof of Concepts
 ------------------
 
