@@ -19,6 +19,7 @@ Proof of Concepts
 
 * Success criteria
 ------------------
+
 As part of the POC process it is alwasy a good idea to get a written success criteria agreed to by both Red Hat and the customer to ensure that the proper expectations are set and met for the engagement.  Below is a simple example.
 
 	* Success Criteria:
